@@ -81,19 +81,18 @@ def double_encode_uc(input_path, output_dir, subfolder):
         for table in f_cmap.tables:
             # if table.format in [4, 12, 13, 14]:
             cmap = {}
-            for u, n in table.cmap.iteritems():
+            for u, n in list(table.cmap.items()):
                 cmap[u] = n
                 if u not in IGNORE_UNICODES:
                     lc = get_lowercase_unicode(u)
-                    if lc and lc != u and lc not in table.cmap.keys():
+                    if lc and lc != u and lc not in list(table.cmap.keys()):
                         cmap[lc] = n
             table.cmap = cmap
 
         f.save(out_path)
         f.close()
-        print("%s -> done" % p)
+        print(f"{p} -> done")
         font_count += 1
 
     print("")
-    print("All done: %s font processed in %s secs" %
-          (font_count, time.time() - t))
+    print(f"All done: {font_count} font processed in {time.time() - t} secs")

@@ -9,7 +9,7 @@ def readme():
 
 
 setup(name="AllCapist",
-      version="0.2",
+      version="0.3",
       description="a little tool to inject unicode mapping in font files",
       long_description=readme(),
       classifiers=[
