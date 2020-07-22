@@ -24,7 +24,7 @@ IGNORE_UNICODES = [304]  # idotaccent
 
 def get_lowercase_unicode(uni):
     import unicodedata
-    s = (unichr(uni))
+    s = (chr(uni))
     lc = s.lower()
     if s != lc:
         return ord(lc)
